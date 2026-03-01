@@ -43,7 +43,7 @@ class AppointmentsViewSet(ModelViewSet):
         instance = serializer.save()
         new_slot = instance.timeslot
 
-        # agar timeslot o‘zgargan bo‘lsa
+    
         if old_slot != new_slot:
             old_slot.is_available = True
             old_slot.save(update_fields=["is_available"])
@@ -51,7 +51,7 @@ class AppointmentsViewSet(ModelViewSet):
             new_slot.is_available = False
             new_slot.save(update_fields=["is_available"])
 
-        # agar status cancelled bo‘lsa
+        
         if instance.status == "cancelled":
             new_slot.is_available = True
         new_slot.save(update_fields=["is_available"])

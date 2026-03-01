@@ -16,8 +16,7 @@ class TimeSlotViewSet(ModelViewSet):
     
     def get_queryset(self):
         queryset = TimeSlot.objects.all()
-        # if 
-        # return queryset.filter(doctor=self.request.user)
+        
         return queryset
     
     def perform_create(self, serializer):
